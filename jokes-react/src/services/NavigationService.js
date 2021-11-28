@@ -1,4 +1,4 @@
-import Button from 'react-bootstrap/Button'
+import { Button } from 'react-bootstrap/esm/Button';
 import { useNavigate } from 'react-router-dom'
 
 function BackButton() {
@@ -6,7 +6,8 @@ function BackButton() {
 
     return (
         <Button>
-            navigation('jokes');
+            navigation('jokes'); {/* TODO: find how to solve this */}
         </Button>
     )
 }
+

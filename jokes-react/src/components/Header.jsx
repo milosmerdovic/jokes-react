@@ -14,11 +14,12 @@ class Header extends Component {
       <div>
         <Navbar bg="dark" variant="dark">
           <Nav className="me-auto">
-            {/* <Nav.Link href='/'>
-                    Home
-                </Nav.Link> */}
-            <Link to="/">Home</Link>
-            <Link to="/facts">Facts</Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/facts">Facts</Nav.Link>
+            <Nav.Link href="/jokes">Jokes</Nav.Link>
+
+            {/* <Link to="/">Home</Link>
+            <Link to="/facts">Facts</Link> */}
           </Nav>
         </Navbar>
       </div>

@@ -9,7 +9,7 @@ class Facts extends Component {
   render() {
     return (
       <div>
-        <h1>Proba</h1>
+        <h1 className='main-page-title'>Proba</h1>
       </div>
     );
   }

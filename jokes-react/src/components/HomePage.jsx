@@ -10,7 +10,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.name}</h1>
+        <h1 className='main-page-title'>{this.state.name}</h1>
       </div>
     );
   }
