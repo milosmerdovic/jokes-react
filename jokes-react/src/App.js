@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Facts from './components/FactsComponent';
 import Jokes from './components/JokesPage';
 
+require('dotenv').config()
+
 function App() {
   return (
     <div className='main'>

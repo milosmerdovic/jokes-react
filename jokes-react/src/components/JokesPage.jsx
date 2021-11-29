@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import JokesListService from '../services/JokesListService';
 
 class Jokes extends Component {
   constructor(props) {
@@ -8,26 +9,23 @@ class Jokes extends Component {
     };
   }
 
+  componentDidMount() {
+    JokesListService.getAllJokes().then(result => {
+      this.setState({jokes : result.data})
+    });
+  }
+
   render() {
     return (
       <>
         <div>
           <h1 className="main-page-title">Vicevi</h1>
         </div>
-        <div>
-          {/* {this.state.jokes.map((joke) => (
-            <tr key="Vic">
-              <td>Moj vic</td>
+          {this.state.jokes.map(joke => 
+            <tr key = {joke.id}>
+              <td>{joke.joke}</td>
             </tr>
-          ))} */}
-          <th>Vicevi vicevi</th>
-          <tr>
-            {" "}
-            Vicevi
-            <td>Moj vic</td>
-            <td>Moj vic</td>
-          </tr>
-        </div>
+          )}
       </>
     );
   }
