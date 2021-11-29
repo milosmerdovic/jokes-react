@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import JokesListService from '../services/JokesListService';
+import JokesListService from "../services/JokesListService";
 
 class Jokes extends Component {
   constructor(props) {
@@ -10,8 +10,8 @@ class Jokes extends Component {
   }
 
   componentDidMount() {
-    JokesListService.getAllJokes().then(result => {
-      this.setState({jokes : result.data})
+    JokesListService.getAllJokes().then((result) => {
+      this.setState({ jokes: result.data });
     });
   }
 
@@ -21,11 +21,13 @@ class Jokes extends Component {
         <div>
           <h1 className="main-page-title">Vicevi</h1>
         </div>
-          {this.state.jokes.map(joke => 
-            <tr key = {joke.id}>
+        <div className="main-page-container">
+          {this.state.jokes.map((joke) => (
+            <tr key={joke.id}>
               <td>{joke.joke}</td>
             </tr>
-          )}
+          ))}
+        </div>
       </>
     );
   }

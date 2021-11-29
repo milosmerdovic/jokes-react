@@ -1,3 +1,8 @@
+.main-page-container {
+  background-color: #f8f9fa;
+  margin-top: 12px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

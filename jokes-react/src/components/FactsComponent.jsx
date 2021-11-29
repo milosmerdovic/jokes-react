@@ -4,13 +4,15 @@ import { BackButton } from '../services/NavigationService'
 class Facts extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      facts: []
+    };
   }
 
   render() {
     return (
       <div>
-        <h1 className='main-page-title'>Proba</h1>
+        <h1 className='main-page-title'>Neverovali ili da</h1>
       </div>
      
       
