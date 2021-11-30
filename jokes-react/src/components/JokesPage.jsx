@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import JokesListService from "../services/JokesListService";
+import HeaderTitleComponent from "./HeaderTitleComponent";
+import ClearButton from '../components/Buttons/ClearButton'
 
 class Jokes extends Component {
   constructor(props) {
@@ -15,19 +17,26 @@ class Jokes extends Component {
     });
   }
 
+  handleCallback = () => {
+    let niz = [];
+    // niz.push({ id: 1, joke: val });
+    this.setState({ jokes: niz });
+  };
+
   render() {
+    const { jokes } = this.state;
+
     return (
       <>
-        <div>
-          <h1 className="main-page-title">Vicevi</h1>
-        </div>
+        <HeaderTitleComponent title="Vicevi"/>
         <div className="main-page-container">
-          {this.state.jokes.map((joke) => (
+          {jokes.map((joke) => (
             <tr key={joke.id}>
               <td>{joke.joke}</td>
             </tr>
           ))}
         </div>
+        <ClearButton parentCallback={this.handleCallback} isDeletedFromDb={false}/>
       </>
     );
   }

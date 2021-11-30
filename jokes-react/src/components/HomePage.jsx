@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import HeaderTitleComponent from "./HeaderTitleComponent";
 
 class HomePage extends Component {
   constructor(props) {
@@ -9,9 +10,7 @@ class HomePage extends Component {
   }
   render() {
     return (
-      <div>
-        <h1 className='main-page-title'>{this.state.name}</h1>
-      </div>
+      <HeaderTitleComponent title='Pochetna'/>
     );
   }
 }
