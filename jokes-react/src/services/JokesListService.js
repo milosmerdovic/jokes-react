@@ -4,7 +4,7 @@ const jokesUrl = `${process.env.REACT_APP_API_URL}/jokes`;
 
 
 class JokesService {
-    getAllJokes() {
+    getAllJokes = () => {
         return axios.get(jokesUrl);
     }
 }

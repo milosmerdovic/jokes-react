@@ -2,14 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import Button from "@restart/ui/esm/Button";
 
-const HeaderTitleComponent = ({ parentCallback, isDeletedFromDb }) => {
+const ClearButtonComponent = ({ parentCallback, isDeletedFromDb=false }) => {
 
     const clear = () => {
-        parentCallback(); // rendering a new value
-
-        if(isDeletedFromDb) {
-            // call the delete API from BE here
-        }
+        parentCallback(isDeletedFromDb); // rendering a new value
     }
 
   return (
@@ -19,8 +15,13 @@ const HeaderTitleComponent = ({ parentCallback, isDeletedFromDb }) => {
   );
 };
 
-HeaderTitleComponent.propTypes = {
-    isDeletedFromDb : PropTypes.bool
+ClearButtonComponent.propTypes = {
+    isDeletedFromDb : PropTypes.bool,
+    parentCallback : PropTypes.func.isRequired,
 }
 
-export default HeaderTitleComponent;
+ClearButtonComponent.defaultProps = {
+    isDeletedFromDb : false,
+}
+
+export default ClearButtonComponent;
