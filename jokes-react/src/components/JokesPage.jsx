@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import JokesListService from "../services/JokesListService";
+import JokesListService from "../services/JokeServices/JokesListService";
 import HeaderTitleComponent from "./HeaderTitleComponent";
 import ClearButton from "../components/Buttons/ClearButton";
 import JokeArea from "./JokeArea";
