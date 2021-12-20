@@ -2,6 +2,18 @@
   background-color: #f8f9fa;
   margin-top: 12px;
   padding-left: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+.joke-content {
+  width: 300px;
+  min-height: min-content;
+  max-height: fit-content;
+  margin: auto;
 }
 
 body {

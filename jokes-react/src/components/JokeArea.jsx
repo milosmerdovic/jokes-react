@@ -14,15 +14,17 @@ const JokeArea = (props) => {
   const formattedDate = moment(date).format("LL"); // SETS DATE TO BE PRINTED IN SERBIAN LANGUAGE DD-Month-YYYY
   moment.locale("sr");
 
-  const [isExpanded, setIsExpanded] = useState(false); // isExpanded SET TO FALSE INITIALLY 
+  const [isExpanded, setIsExpanded] = useState(false); // isExpanded SET TO FALSE INITIALLY
 
-  const trimmedJokeText = isExpanded ? jokeText : jokeText.substring(0, 30) + "..."; // IF IS EXPANDED - SHOW FULL TEXT AND VICE VERSA
-  
+  const trimmedJokeText = isExpanded
+    ? jokeText
+    : jokeText.substring(0, 30) + "..."; // IF IS EXPANDED - SHOW FULL TEXT AND VICE VERSA
+
   const showMoreOrLess = () => {
     // const visible = !isExpanded;
     // setIsExpanded(visible);
 
-    setIsExpanded(!isExpanded); // WHEN BUTTON IS CLICKED CHANGE isExpanded STATUS 
+    setIsExpanded(!isExpanded); // WHEN BUTTON IS CLICKED CHANGE isExpanded STATUS
   };
 
   const bull = (
@@ -49,14 +51,14 @@ const JokeArea = (props) => {
       </CardContent>
       <CardActions>
         <Button size="small" onClick={showMoreOrLess}>
-          {isExpanded ? 'Manje' : 'Više'}
+          {isExpanded ? "Manje" : "Više"}
         </Button>
       </CardActions>
     </>
   );
 
   return (
-    <Box sx={{ maxWidth: 300, maxHeight: 200, display: "inline-block" }}>
+    <Box className="joke-content">
       <Card variant="outlined">{card}</Card>
     </Box>
   );

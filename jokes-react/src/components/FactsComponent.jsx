@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BackButton } from '../services/NavigationService'
 import HeaderTitleComponent from "./HeaderTitleComponent";
 
 class Facts extends Component {
