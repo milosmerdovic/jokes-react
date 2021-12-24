@@ -1,9 +1,10 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import Header from './components/Header';
+import ResponsiveAppBar from './components/AppBar/AppBar';
 import Facts from './components/FactsComponent';
+import HomePage from './components/HomePage';
 import Jokes from './components/JokesPage';
+import SearchPageComponent from './components/SearchPageComponent/SearchPageComponent';
 
 require('dotenv').config();
 
@@ -11,14 +12,14 @@ function App() {
   return (
     <div className='main'>
       <Router>
-        <Header />
+        <ResponsiveAppBar />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='jokes' element={<Jokes />}>
-            {/* <Route path='blondes' element= {<Plavuse/>}/>
+          <Route path='jokes' element={<Jokes />} />
+          {/* <Route path='blondes' element= {<Plavuse/>}/>
             <Route path='bosnians' element= {<Mujo i Haso/>}/>
             <Route path='cops' element= {<Policajci/>}/> */}
-          </Route>
+          <Route path='search' element={<SearchPageComponent />} />
           <Route path='facts' element={<Facts />} />
         </Routes>
       </Router>

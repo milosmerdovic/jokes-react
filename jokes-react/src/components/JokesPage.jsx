@@ -1,9 +1,8 @@
 import React, { Component } from "react";
+import ClearButton from "../components/Buttons/ClearButton";
 import JokesListService from "../services/JokeServices/JokesListService";
 import HeaderTitleComponent from "./HeaderTitleComponent";
-import ClearButton from "../components/Buttons/ClearButton";
 import JokeArea from "./JokeArea";
-import SearchJokesService from "../services/JokeServices/SearchJokesService";
 
 class Jokes extends Component {
   constructor(props) {

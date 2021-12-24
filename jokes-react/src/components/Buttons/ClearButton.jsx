@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types';
 import Button from "@restart/ui/esm/Button";
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const ClearButtonComponent = ({ parentCallback, isDeletedFromDb=false }) => {
 

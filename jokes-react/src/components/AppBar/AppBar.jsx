@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import SearchJokesService from "../../services/JokeServices/SearchJokesService";
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import InputBase from "@mui/material/InputBase";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { alpha, styled } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSearch } from "../../store/search/hooks";
 
 const pages = [
   { key: 1, label: "Početna", route: "/" },
@@ -23,7 +23,7 @@ const pages = [
   { key: 3, label: "Vicevi", route: "/jokes" },
 ];
 
-const settings = ["Profil", "Podešavanja naloga", "Izloguj se"];
+const userSettings = ["Profil", "Podešavanja naloga", "Izloguj se"];
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -66,9 +66,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const ResponsiveAppBar = () => {
+  const navigate = useNavigate();
+  
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
+  const { search, fetchSearch } = useSearch();
+//  console.log('This is search redux data: ', search);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -85,9 +89,13 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  const searchJokes = (q) => {
-    SearchJokesService.searchJokes(q);
-  }
+  // const searchJokes = (q) => {
+  //   SearchJokesService.searchJokes(q);
+  // }
+
+  // useEffect(() => {
+  //   fetchSearch(searchQuery)
+  // }, []);
 
   return (
     <AppBar position="static">
@@ -178,18 +186,19 @@ const ResponsiveAppBar = () => {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Pretraga..."
               inputProps={{ "aria-label": "search" }}
               onKeyDown={e => {
                 if (e.key === 'Enter') {
-                  searchJokes(e.target.value);
+                  fetchSearch(e.target.value);
+                  navigate('search');
                 }
               }}
             />
           </Search>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Open userSettings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
@@ -210,7 +219,7 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {userSettings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>

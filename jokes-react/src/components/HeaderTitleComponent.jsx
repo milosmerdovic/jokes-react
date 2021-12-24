@@ -1,6 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
-import Button from "@restart/ui/esm/Button";
+import React from "react";
 
 const HeaderTitleComponent = ({ title }) => {
   return (
