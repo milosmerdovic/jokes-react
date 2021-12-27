@@ -16,6 +16,9 @@ import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSearch } from "../../store/search/hooks";
+import HeaderTitleComponent from "../HeaderTitleComponent";
+
+const drawerWidth = 260;
 
 const pages = [
   { key: 1, label: "Početna", route: "/" },
@@ -98,7 +101,8 @@ const ResponsiveAppBar = () => {
   // }, []);
 
   return (
-    <AppBar position="static">
+    <>
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -198,7 +202,7 @@ const ResponsiveAppBar = () => {
           </Search>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open userSettings">
+            <Tooltip title="Podešavanja naloga">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
@@ -229,6 +233,7 @@ const ResponsiveAppBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
+    </>
   );
 };
 export default ResponsiveAppBar;

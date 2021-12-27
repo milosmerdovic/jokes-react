@@ -9,6 +9,12 @@
   justify-content: space-around;
 }
 
+@media screen and (min-width: 900px) {
+  .main-page-container {
+    margin-left: 240px;
+  }
+}
+
 .joke-content {
   width: 300px;
   min-height: min-content;
@@ -28,6 +34,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.main-page-title-div {
+  position: calc(100vh - 100px);
 }
 
 .main-page-title {

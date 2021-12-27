@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React, { Component } from "react";
 import ClearButton from "../components/Buttons/ClearButton";
 import JokesListService from "../services/JokeServices/JokesListService";
@@ -8,6 +9,7 @@ class Jokes extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: 'Vicevi',
       jokes: [],
     };
   }
@@ -47,7 +49,8 @@ class Jokes extends Component {
 
     return (
       <>
-        <HeaderTitleComponent title="Vicevi" />
+        <HeaderTitleComponent title={this.state.title} />
+        <Box component="main" sx={{ flexGrow: 1}}>
         <div className="main-page-container">
           {jokes.map((joke) => (
             <JokeArea
@@ -59,6 +62,7 @@ class Jokes extends Component {
           ))}
         </div>
         <ClearButton parentCallback={this.handleCallback} />
+        </Box>
       </>
     );
   }

@@ -5,6 +5,7 @@ import Facts from './components/FactsComponent';
 import HomePage from './components/HomePage';
 import Jokes from './components/JokesPage';
 import SearchPageComponent from './components/SearchPageComponent/SearchPageComponent';
+import ClippedDrawer from './components/sidebar/SidebarComponent'
 
 require('dotenv').config();
 
@@ -13,6 +14,7 @@ function App() {
     <div className='main'>
       <Router>
         <ResponsiveAppBar />
+        <ClippedDrawer />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='jokes' element={<Jokes />} />

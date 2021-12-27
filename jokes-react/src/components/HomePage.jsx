@@ -1,7 +1,9 @@
+import { Box } from "@mui/material";
 import React, { Component } from "react";
 import RandomJokeService from "../services/JokeServices/RandomJokeService";
 import HeaderTitleComponent from "./HeaderTitleComponent";
 import SingleJokePaper from "./SingleJokeComponent";
+import { spacing } from '@mui/system';
 class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +21,7 @@ class HomePage extends Component {
     try {
       const result = await RandomJokeService.getRandomJoke();
       this.setState({
+        title: "Početna",
         joke: result.data,
       });
     } catch {}
@@ -63,19 +66,21 @@ class HomePage extends Component {
   }
 
   render() {
-    const { joke, searchPerformed } = this.state;
+    const { joke, title } = this.state;
 
     return (
       <>
-        <HeaderTitleComponent title="Pochetna" />
-        <div className="main-page-container">
+        <HeaderTitleComponent title={title} />
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <div className="main-page-container">
             <SingleJokePaper
               date={joke.input}
               title={"Naslov"}
               jokeText={joke.joke}
               onRefresh={(event) => this.refreshJoke(event)}
             />
-        </div>
+          </div>
+        </Box>
       </>
     );
   }
