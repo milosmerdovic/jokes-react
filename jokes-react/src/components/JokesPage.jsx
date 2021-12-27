@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import ClearButton from "../components/Buttons/ClearButton";
 import JokesListService from "../services/JokeServices/JokesListService";
 import HeaderTitleComponent from "./HeaderTitleComponent";
-import ClearButton from "../components/Buttons/ClearButton";
 import JokeArea from "./JokeArea";
 
 class Jokes extends Component {
@@ -29,7 +29,7 @@ class Jokes extends Component {
 
       this.setState({
         jokes: result.data.sort(function (a, b) {
-          return new Date(b.input) - new Date(a.input);
+          return new Date(a.input) - new Date(b.input);
         }),
       });
     } catch {}
@@ -50,7 +50,12 @@ class Jokes extends Component {
         <HeaderTitleComponent title="Vicevi" />
         <div className="main-page-container">
           {jokes.map((joke) => (
-            <JokeArea key={joke.id} date={joke.input} title={"Naslov"} jokeText={joke.joke} /> // REACT ASKS FOR KEY WHEN MAP IS USED
+            <JokeArea
+              key={joke.id}
+              date={joke.input}
+              title={"Naslov"}
+              jokeText={joke.joke}
+            /> // REACT ASKS FOR KEY WHEN MAP IS USED
           ))}
         </div>
         <ClearButton parentCallback={this.handleCallback} />

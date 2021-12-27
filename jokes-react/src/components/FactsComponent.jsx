@@ -1,20 +1,18 @@
 import React, { Component } from "react";
-import { BackButton } from '../services/NavigationService'
 import HeaderTitleComponent from "./HeaderTitleComponent";
 
 class Facts extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      pageName: 'Zanimljivosti',
       facts: []
     };
   }
 
   render() {
     return (
-      <HeaderTitleComponent title="Zanimljivosti"/>
-     
-      
+      <HeaderTitleComponent title={this.state.pageName}/>
     );
   }
 }

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import RandomJokeService from "../services/JokeServices/RandomJokeService";
 import HeaderTitleComponent from "./HeaderTitleComponent";
 import SingleJokePaper from "./SingleJokeComponent";
-
 class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +32,6 @@ class HomePage extends Component {
     this.fetchRandomJoke();
   }
 
-
   /*
   Method which gets isRefreshed flag. It checks if the
   previous state (i.e. false !== true) && isRefreshed (== true).
@@ -42,15 +40,14 @@ class HomePage extends Component {
   is set to false again so the new cicle can be done
   */
   componentDidUpdate(prevProps, prevState) {
-    const { isRefreshed }  = this.state;
+    const { isRefreshed } = this.state;
 
-    if((prevState.isRefreshed !== isRefreshed) && isRefreshed) {
+    if (prevState.isRefreshed !== isRefreshed && isRefreshed) {
       this.fetchRandomJoke();
       this.setState({
         isRefreshed: false,
-      })
+      });
     }
-    
   }
 
   /*
@@ -60,24 +57,24 @@ class HomePage extends Component {
   refreshJoke(event) {
     this.setState({
       isRefreshed: true,
-    })
+    });
 
     // console.log("EVENT DATA = ", event);
   }
 
   render() {
-    const { joke } = this.state;
+    const { joke, searchPerformed } = this.state;
 
     return (
       <>
         <HeaderTitleComponent title="Pochetna" />
         <div className="main-page-container">
-          <SingleJokePaper
-            date={joke.input}
-            title={"Naslov"}
-            jokeText={joke.joke}
-            onRefresh={(event) => this.refreshJoke(event)}
-          />
+            <SingleJokePaper
+              date={joke.input}
+              title={"Naslov"}
+              jokeText={joke.joke}
+              onRefresh={(event) => this.refreshJoke(event)}
+            />
         </div>
       </>
     );
