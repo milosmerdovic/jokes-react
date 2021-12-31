@@ -2,14 +2,15 @@ import { Box } from "@mui/material";
 import React, { Component } from "react";
 import ClearButton from "../components/Buttons/ClearButton";
 import JokesListService from "../services/JokeServices/JokesListService";
-import HeaderTitleComponent from "./HeaderTitleComponent";
-import JokeArea from "./JokeArea";
+import HeaderTitleComponent from "./HeaderTitle/HeaderTitleComponent";
+import Slider from "./Slider/Slider";
+
 
 class Jokes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Vicevi',
+      title: "Vicevi",
       jokes: [],
     };
   }
@@ -50,18 +51,11 @@ class Jokes extends Component {
     return (
       <>
         <HeaderTitleComponent title={this.state.title} />
-        <Box component="main" sx={{ flexGrow: 1}}>
-        <div className="main-page-container">
-          {jokes.map((joke) => (
-            <JokeArea
-              key={joke.id}
-              date={joke.input}
-              title={"Naslov"}
-              jokeText={joke.joke}
-            /> // REACT ASKS FOR KEY WHEN MAP IS USED
-          ))}
-        </div>
-        <ClearButton parentCallback={this.handleCallback} />
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <div className="main-page-container">
+            <Slider jokes={jokes} />
+          </div>
+          <ClearButton parentCallback={this.handleCallback} />
         </Box>
       </>
     );

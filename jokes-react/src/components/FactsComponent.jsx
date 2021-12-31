@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HeaderTitleComponent from "./HeaderTitleComponent";
+import HeaderTitleComponent from "./HeaderTitle/HeaderTitleComponent";
 
 class Facts extends Component {
   constructor(props) {
@@ -13,6 +13,8 @@ class Facts extends Component {
   render() {
     return (
       <HeaderTitleComponent title={this.state.pageName}/>
+
+      
     );
   }
 }

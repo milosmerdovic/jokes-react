@@ -16,14 +16,13 @@ import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSearch } from "../../store/search/hooks";
-import HeaderTitleComponent from "../HeaderTitleComponent";
 
 const drawerWidth = 260;
 
 const pages = [
   { key: 1, label: "Početna", route: "/" },
   { key: 2, label: "Zanimljivosti", route: "/facts" },
-  { key: 3, label: "Vicevi", route: "/jokes" },
+  { key: 3, label: "Vicevi", route: "/jokes" }
 ];
 
 const userSettings = ["Profil", "Podešavanja naloga", "Izloguj se"];
@@ -102,7 +101,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <>
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+    <AppBar position="absolute" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

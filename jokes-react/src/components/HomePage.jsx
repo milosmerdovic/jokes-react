@@ -1,9 +1,8 @@
 import { Box } from "@mui/material";
 import React, { Component } from "react";
 import RandomJokeService from "../services/JokeServices/RandomJokeService";
-import HeaderTitleComponent from "./HeaderTitleComponent";
+import HeaderTitleComponent from "./HeaderTitle/HeaderTitleComponent";
 import SingleJokePaper from "./SingleJokeComponent";
-import { spacing } from '@mui/system';
 class HomePage extends Component {
   constructor(props) {
     super(props);

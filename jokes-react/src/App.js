@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ResponsiveAppBar from './components/AppBar/AppBar';
 import Facts from './components/FactsComponent';
+import Footer from './components/Footer/FooterComponent';
 import HomePage from './components/HomePage';
 import Jokes from './components/JokesPage';
 import SearchPageComponent from './components/SearchPageComponent/SearchPageComponent';
-import ClippedDrawer from './components/sidebar/SidebarComponent'
+import ClippedDrawer from './components/sidebar/SidebarComponent';
 
 require('dotenv').config();
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='facts' element={<Facts />} />
         </Routes>
       </Router>
+      <Footer />
     </div>
   );
 }

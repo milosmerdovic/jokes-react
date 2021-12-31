@@ -1,5 +1,6 @@
 .main-page-container {
   background-color: #f8f9fa;
+  /* background-color: #F7F9FA; */
   margin-top: 12px;
   padding-left: 20px;
   display: flex;
@@ -15,8 +16,14 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .main-page-container {
+    margin-left: 60px;
+  }
+}
+
 .joke-content {
-  width: 300px;
+  width: 200px;
   min-height: min-content;
   max-height: fit-content;
   margin: auto;
@@ -46,4 +53,8 @@ code {
   -moz-box-shadow: 0 10px 5px #888888;
   box-shadow: 0 10px 5px #888888;
   text-align: center;
+}
+
+.carousel-container {
+  max-width: 100%;
 }

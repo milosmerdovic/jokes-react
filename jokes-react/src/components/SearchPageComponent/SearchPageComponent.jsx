@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSearch } from "../../store/search/hooks";
-import HeaderTitleComponent from "../HeaderTitleComponent";
+import HeaderTitleComponent from "../HeaderTitle/HeaderTitleComponent";
 import JokeArea from "../JokeArea";
 
 const SearchPageComponent = () => {
